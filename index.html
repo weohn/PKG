@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style2.css">
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="colorjoe/colorjoe.css">
+	<script src="colorjoe/colorjoe.min.js"></script>
+
+	<title>Color Picker with JavaScript</title>
+</head>
+
+<body>
+	<div class="container">
+		<div id="colorSquare"></div>
+
+		<div class="wrapper1">
+			<div class="box1">
+				RGB:
+				<font id="allCounter1">(0, 0, 0)</font>
+			</div>
+			<div class="box1">
+				CMYK:
+				<font id="allCounter2">(0, 0, 0, 0)</font>
+			</div>
+			<div class="box1">
+				HSV:
+				<font id="allCounter3">(0, 0, 0)</font>
+			</div>
+		</div>
+
+		<!-- //////////////////RGB////////////////// -->
+		<div class="wrapper2">
+			<div class="box2">
+				<div class="colorRange" id="redRange" style="color:red" onclick="input(R, r)"></div>
+				<strong>
+					<font onclick="decreaseRed();RGBWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="red1" min="0" max="255" step="1" value="0" oninput="RGBWorkFunction()"></input>
+				<strong>
+					<font onclick="increaseRed();RGBWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="redText" oninput="getInputValue1();RGBWorkFunction()"> Red
+
+				<div class="colorRange" id="greenRange" style="color:green" onclick="input(G, g)"></div>
+				<strong>
+					<font onclick="decreaseGreen();RGBWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="green1" min="0" max="255" step="1" value="0" oninput="RGBWorkFunction()">
+				<strong>
+					<font onclick="increaseGreen();RGBWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="greenText" oninput="getInputValue2();RGBWorkFunction()"> Green
+
+				<div class="colorRange" id="blueRange" style="color:blue" onclick="input(B, b)"></div>
+				<strong>
+					<font onclick="decreaseBlue();RGBWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="blue1" min="0" max="255" step="1" value="0" oninput="RGBWorkFunction()">
+				<strong>
+					<font onclick="increaseBlue();RGBWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="blueText" oninput="getInputValue3();RGBWorkFunction()"> Blue
+			</div>
+			<!-- //////////////////CMYK////////////////// -->
+			<div class="box2">
+				<div class="colorRange" id="cyanRange" onclick="input(a, cyan)"></div>
+				<strong>
+					<font onclick="decreaseCyan();CMYKWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="cyan1" min="0" max="100" step="1" value="0" oninput="CMYKWorkFunction()">
+				<strong>
+					<font onclick="increaseCyan();CMYKWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="cyanText" oninput="getInputValue4();CMYKWorkFunction()"> Cyan
+
+				<div class="colorRange" id="magentaRange" onclick="input(a, magenta)"></div>
+				<strong>
+					<font onclick="decreaseMagenta();CMYKWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="magenta1" min="0" max="100" step="1" value="0" oninput="CMYKWorkFunction()"
+					style="width:210 px">
+				<strong>
+					<font onclick="increaseMagenta();CMYKWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="magentaText" oninput="getInputValue5();CMYKWorkFunction()"> Magenta
+
+				<div class="colorRange" id="yellowRange" onclick="input(a, yellow)"></div>
+				<strong>
+					<font onclick="decreaseYellow();CMYKWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="yellow1" min="0" max="100" step="1" value="0" oninput="CMYKWorkFunction()">
+				<strong>
+					<font onclick="increaseYellow();CMYKWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="yellowText" oninput="getInputValue6();CMYKWorkFunction()"> Yellow
+
+				<div class="colorRange" id="keyRange" onclick="input(a, key)"></div>
+				<strong>
+					<font onclick="decreaseKey();CMYKWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="key1" min="0" max="100" step="1" value="0" oninput="CMYKWorkFunction()">
+				<strong>
+					<font onclick="increaseKey();CMYKWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="keyText" oninput="getInputValue7();CMYKWorkFunction()"> Key
+			</div>
+			<!-- //////////////////HSV////////////////// -->
+			<div class="box2">
+				<div class="colorRange" id="hueRange" onclick="input(a, hue)"></div>
+				<strong>
+					<font onclick="decreaseHue();HSVWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="hue1" min="0" max="360" step="1" value="0" oninput="HSVWorkFunction()">
+				<strong>
+					<font onclick="increaseHue();HSVWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="hueText" oninput="getInputValue8();HSVWorkFunction()"> Hue
+
+				<div class="colorRange" id="saturationRange" onclick="input(a, saturation)"></div>
+				<strong>
+					<font onclick="decreaseSaturation();HSVWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="saturation1" min="0" max="100" step="1" value="0" oninput="HSVWorkFunction()">
+				<strong>
+					<font onclick="increaseSaturation();HSVWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="saturationText" oninput="getInputValue9();HSVWorkFunction()">
+				Saturation
+
+				<div class="colorRange" id="valueRange" onclick="input(a, value)"></div>
+				<strong>
+					<font onclick="decreaseValue();HSVWorkFunction()">-</font>
+				</strong>
+				<input type="range" id="value1" min="0" max="100" step="1" value="0" oninput="HSVWorkFunction()">
+				<strong>
+					<font onclick="increaseValue();HSVWorkFunction()">+</font>
+				</strong>
+				<br>
+				<input type="text" class="text" id="valueText" oninput="getInputValue10();HSVWorkFunction()"> Value
+			</div>
+		</div>
+
+		<div class="colorjoe" onmousemove="HEXtoRGB()"></div>
+		<div class="config">
+			<div class="selected-color-text"></div>
+			<div class="selected-color"></div>
+		</div>
+	</div>
+	<script>
+		var colorchik = 0;
+		class ColorPicker {
+			constructor(root) {
+				this.root = root;
+				this.colorjoe = colorjoe.rgb(this.root.querySelector(".colorjoe"));
+				this.selectedColor = null;
+				this.savedColors = this.getSavedColors();
+
+				this.colorjoe.show();
+				this.setSelectedColor("");
+
+				this.colorjoe.on("change", color => {
+					this.setSelectedColor((color.hex()), true);
+				});
+
+				this.root.querySelectorAll(".saved-color").forEach((el, i) => {
+					this.showSavedColor(el, this.savedColors[i]);
+
+					el.addEventListener("mouseup", e => {
+						if (e.button == 1) {
+							this.saveColor(this.selectedColor, i);
+							this.showSavedColor(el, this.selectedColor);
+						}
+
+						this.setSelectedColor(el.dataset.color);
+					});
+				});
+			}
+
+			setSelectedColor(color, skipCjUpdate = false) {
+				this.selectedColor = color;
+				this.root.querySelector(".selected-color").style.background = color;
+
+				if (!skipCjUpdate) {
+					this.colorjoe.set(color);
+				}
+				colorchik = color;
+			}
+
+			getSavedColors() {
+				const saved = JSON.parse(localStorage.getItem("colorpicker-saved") || "[]");
+
+				return new Array(5).fill("#ffffff").map((defaultColor, i) => {
+					return saved[i] || defaultColor;
+				});
+			}
+
+			showSavedColor(element, color) {
+				element.style.background = color;
+				element.dataset.color = color;
+			}
+		}
+
+		const cp = new ColorPicker(document.querySelector(".container"));
+
+		function HEXtoRGB(hex) {
+			hex = colorchik;
+			hex = hex.substring(1);
+			var bigint = parseInt(hex, 16);
+			var r = (bigint >> 16) & 255;
+			var g = (bigint >> 8) & 255;
+			var b = bigint & 255;
+
+			document.getElementById("redText").value = r;
+			document.getElementById("greenText").value = g;
+			document.getElementById("blueText").value = b;
+			document.getElementById("red1").value = r;
+			document.getElementById("green1").value = g;
+			document.getElementById("blue1").value = b;
+			document.getElementById("allCounter1").textContent =
+				"(" + r + ", " + g + ", " + b + ")"
+
+			var color = [r, g, b];
+			colorSquare.style["backgroundColor"] = "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
+			var color2 = RGBtoHSV(color[0], color[1], color[2]);
+			var color3 = RGBtoCMYK(color[0], color[1], color[2]);
+		}
+	</script>
+</body>
+
+</html>
