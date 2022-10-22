@@ -1,0 +1,81 @@
+#colorSquare {
+	float: right;
+	margin-right: 20px;
+	margin-top: 10%;
+	width: 30%;
+	background-color: black;
+	width: 100px;
+	height: 100px;
+}
+
+@font-face {
+	font-family: raleway_f;
+	src: url(../fonts/raleway-regular.woff2);
+}
+
+body {
+	font-family: raleway_f, sans-serif;
+	background: #eeeeee;
+	margin: 20px;
+}
+
+.wrapper1 {
+	display: grid;
+	margin-left: 350px;
+	grid-template-columns: repeat(3, 0.4fr);
+	grid-template-rows: repeat(3, 5px);
+}
+
+.wrapper2 {
+	display: grid;
+	margin-left: 370px;
+	grid-template-columns: repeat(3, 0.4fr);
+	grid-template-rows: repeat(3, 5px);
+}
+
+.text {
+	width: 15%;
+	height: 15px;
+}
+
+.box1 {
+	margin-top: 15%;
+	margin-left: 10%;
+	text-align: center;
+}
+
+.box2 {
+	margin-top: 20%;
+	margin-left: 10%;
+}
+
+.colorRange {
+	margin-bottom: 1%;
+}
+
+.colorPicker {
+	background: none;
+	width: 300px;
+	border: none;
+	margin: 0;
+
+}
+
+.colorPicker .oned {
+	margin-right: 0;
+}
+
+.container {
+	float: left;
+	margin: 0;
+	width: 80%;
+	padding: 10px;
+	background: #ffffff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.config {
+	flex-grow: 1;
+	margin-left: 20px;
+}
